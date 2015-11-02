@@ -6,7 +6,7 @@ I want to eat!
 Fuck!
 21:31!!!time how time flies :-(
 South Girls~~21:37
-22:05 fell calm~
+22:05 fell calm~ and cold~!
 =======
 Hello Double
 This is a text
