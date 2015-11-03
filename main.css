@@ -1,3 +1,18 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
 body{
 	background-color:#f89821;
 	color:#f8f7bb;
@@ -16,12 +31,15 @@ img{
 
 .container{
 	margin: auto;
-	width: 50%;
+	width: 100%;
 }
 .a1{
 	text-align: left;
 	display:flex;
 	align-items:center;
+	margin:10px auto ;
+	float: center;
+	width: 480px;
 }
 .a1 img{
 	float: left;
@@ -43,16 +61,58 @@ img{
 .a1 .description{
 	font-size: 18px;
 	font-weight: bolder;
+	white-space:nowrap
 }
 .a1 .description span{
 	color: #e06826
 }
 .a2{
 	clear: both;
+	white-space:nowrap;
+	width: 75%;
+	margin:10px auto ;
 }
-.a2.input-group{
+.a2 .input-group{
 	background-color: #fff;
-	width: 720px;
+	
+    height: 35px;
+    max-width: 700px;
+    margin:10px auto ;
+}
+
+.a2 .input-group .input-engine{
+	width: 35px;
+	height: 35px;
+	border: none;
+	cursor: pointer;
+	background: url(http://how-old.net/Images/bing2.png);
+	background-position: center center;
+	background-size: 35px 35px;
+	background-repeat: no-repeat;
+	background-color: white;
+	border: none;
+	float: left;
+}
+.a2 .input-group .input-box{
+	border: none;
+	padding-left: 10px;
+	height: 33px;
+	float: left;
+	width: 80%;
+}
+.a2 .input-group .submit{
+	width: 33px;
+	height: 33px;
+	border: none;
+	cursor: pointer;
+	background: url(http://how-old.net/images/bing1.png);
+	background-position: 6.5px center;
+	background-size: 23px 23px;
+	background-repeat: no-repeat;
+	background-color: white;
+	border: 1px solid #ddd;
+	margin-right: 0px;
+	float: right;
 }
 
 footer{
