@@ -8,7 +8,10 @@
 <body>
 
 	<header>
-		<div>注册 登陆</div>
+		<div>
+		<a href="login.html">注册</a>
+		<a href="register.html">登陆</a>
+		</div>
 	</header>
 	<div class="container">
 		<article class="a1">
@@ -24,18 +27,36 @@
 			<form>
 				<div class="input-group" >
 					<input class="input-engine">
-					<input class="input-box"  type="text">
-					<input type="text" class="submit">
+					<input id="upfile" type="file">
+					<div class="filetext"><span id="filename">请上传文件</span></div>
+					<!-- <input type="text" class="submit"> -->
 				</div>
 			</form>
-			
-			主体部分2主体部分2主体部分2<br>
-			主体部分2主体部分2主体部分2<br>
-			主体部分2主体部分2主体部分2<br>
-			主体部分2主体部分2主体部分2<br>
+			<div class="vidio">
+				<img src="1.jpg">
+			</div>
 		</article>
 	</div>
-
 	<footer>脚注脚注脚注脚注</footer>
+	<script type="text/javascript">
+	var upfile = document.getElementById("upfile");
+	upfile.onchange = function() {
+		updateFilename(this.value);
+	};
+	function extractFilename(path) {
+	  var x;
+	  x = path.lastIndexOf('\\');
+	  if (x >= 0) // 基于Windows的路径
+	    return path.substr(x+1);
+	  x = path.lastIndexOf('/');
+	  if (x >= 0) // 基于Unix的路径
+	    return path.substr(x+1);
+	  return path; // 仅包含文件名
+	}
+	function updateFilename(path) {
+	   var name = extractFilename(path);
+	   document.getElementById('filename').textContent = "您上传的是 "+name;
+	 }
+	</script>
 </body>
 </html>
