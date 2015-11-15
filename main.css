@@ -1,0 +1,169 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+body{
+	background-color:#f89821;
+	color:#f8f7bb;
+	font-family:'Segoe UI Light', CustomSegoeUILight, Arial;;
+}
+
+header{
+	/*border: 1px solid white;*/
+	text-align: right;
+	height:40px;
+	width: 100%;
+	background-color:rgba(255,255,255,0.4);
+	position: fixed;
+	top:0;
+	left: 0;
+	clear: both;
+	color: white;
+}
+header div{
+	margin-top: 6px;
+	font-size: 18px;
+}
+header div a{
+	padding:0 15px ;
+	margin:0 10px;
+}
+header div a:link{color:white;}
+header div a:visited{color:white;}
+header div a:hover{text-decoration:none;background-color:rgba(255,255,255,0.45);color:#f9f9fc;}
+header div a:active{}
+img{
+	border:0;
+	vertical-align: middle;
+}
+
+.container{
+	margin: auto;
+	width: 100%;
+}
+.a1{
+	text-align: left;
+	display:flex;
+	align-items:center;
+	margin:40px auto ;
+	float: center;
+	width: 480px;
+}
+.a1 img{
+	float: left;
+	width: 80px;
+	height:87px;
+}
+.a1 .headertext{
+	margin-left: 10px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	width: 338px;
+	height: 88px;
+}
+.a1 .head{
+	font-size: 58px;
+	font-weight: 100;
+	margin: 0;
+}
+.a1 .description{
+	font-size: 18px;
+	font-weight: bolder;
+	white-space:nowrap
+}
+.a1 .description span{
+	color: #e06826
+}
+.a2{
+	clear: both;
+	white-space:nowrap;
+	width: 75%;
+	margin:10px auto ;
+}
+.a2 .input-group{
+    height: 35px;
+    max-width: 700px;
+    margin:10px auto ;
+    min-width: 400px;
+}
+
+.a2 .input-group .input-engine{
+	margin-left: 10%;
+	width: 50px;
+	height: 50px;
+	border: none;
+	cursor: pointer;
+	background: url(upload.png);
+	background-position: center center;
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	border: none;
+	float: left;
+	cursor: pointer;
+}
+.a2 .input-group .filetext{
+	margin: auto;
+	background-color:rgba(255,255,255,0.4);
+	width: 60%;
+	height: 40px;
+}
+.a2 .input-group .filetext #filename{
+	display: inline-block;
+	width: 100%;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 1%;
+	overflow: auto;
+}
+.a2 .input-group #upfile{
+	z-index: 2;
+	border: none;
+	margin-left: -7%;
+	padding-left: 0px;
+	height: 50px;
+	float: left;
+	width: 50px;
+	opacity: 0.0;
+	cursor: pointer;
+    background-color:rgba(255,255,255,0.1);
+}
+/*.a2 .input-group .submit{
+	width: 33px;
+	height: 33px;
+	border: none;
+	cursor: pointer;
+	background: url(http://how-old.net/images/bing1.png);
+	background-position: 6.5px center;
+	background-size: 23px 23px;
+	background-repeat: no-repeat;
+	background-color: white;
+	border: 1px solid #ddd;
+	margin-right: 0px;
+	float: right;
+}*/
+
+.a2 .vidio{
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+}
+.a2 .vidio img{
+}
+footer{
+	width: 500px;
+	border: 1px solid white;
+	height:50px;
+	margin: 0px auto;
+}

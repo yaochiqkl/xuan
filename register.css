@@ -1,0 +1,84 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+body{
+	background-color:#f89821;
+	color:#f8f7bb;
+	font-family:'Segoe UI Light', CustomSegoeUILight, Arial;;
+}
+
+header{
+	/*border: 1px solid white;*/
+	text-align: right;
+	height:40px;
+	width: 100%;
+	background-color:rgba(255,255,255,0.4);
+	position: fixed;
+	top:0;
+	left: 0;
+	clear: both;
+	color: white;
+}
+header div{
+	margin-top: 6px;
+	font-size: 18px;
+}
+header div a{
+	padding:0 15px ;
+	margin:0 10px;
+}
+header div a:link{color:white;}
+header div a:visited{color:white;}
+header div a:hover{text-decoration:none;background-color:rgba(255,255,255,0.45);color:#f9f9fc;}
+header div a:active{}
+img{
+	border:0;
+	vertical-align: middle;
+}
+
+.container{
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 330px;
+	height: 250px;
+	border: 1px #FFF solid;
+	padding:20px;
+}
+.container>h1{
+	margin: 0 130px;
+	padding-bottom: 20px;
+	font-size: 30px;
+}
+.container>form div{
+	margin-top: 10px;
+}
+#submit{
+	display: inline-block;
+	position: relative;
+	left: 200px;
+	top:10px;
+}
+label{
+	width: 120px;
+	display: inline-block;
+}
+
+footer{
+	width: 500px;
+	border: 1px solid white;
+	height:50px;
+	margin: 0 auto;
+	margin-top: 400px;
+}
