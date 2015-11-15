@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 	<header>
@@ -23,21 +23,61 @@
 		</article>
 
 		<article class="a2">
-			<form>
+
+<?php
+	define('UPLOAD_PATH','vidios/');
+
+	if(isset($_POST['submit'])){
+		$file = $_FILES['file']['name'];
+		if($_FILES['file']['error'] > 0){
+			echo "Error".$_FILES['file']['error']."<br>";
+		} else {
+			echo "Upload : ".$_FILES['file']['name'];
+		}
+		$target = UPLOAD_PATH.$file;
+		if(move_uploaded_file($_FILES['file']['tmp_name'], $target)){
+			$dbc = mysqli_connect('localhost','root','','test')
+				or die('Error connecting to MySQL server!');
+			$query = "INSERT INTO vidio (vidio_name,vidio_upload_time)".
+				"VALUES('$file',NOW())";
+			/*$query = "SELECT * FROM user";*/
+			$result = mysqli_query($dbc,$query)
+				or die('Error quering database!');
+			/*$row = mysqli_fetch_array($result);
+			echo $row['username'];*/
+			mysqli_close($dbc);
+			$upload = false;
+			echo "上传成功";
+		}
+	} else {
+		$upload = true;
+	}
+	if($upload){
+?>
+			<form enctype="multipart/form-data" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" >
+				<div class="upload_group">
+					<input type="hidden" name="MAX_FILE_SIZE" value="3200000">
+					<input class="file" type="file" id="file" name="file">
+					<input class="submit" type="submit" value="上传" name="submit">
+				</div>
+				<!--
 				<div class="input-group" >
 					<input class="input-engine">
 					<input id="upfile" type="file">
 					<div class="filetext"><span id="filename">请上传文件</span></div>
-					<!-- <input type="text" class="submit"> -->
-				</div>
+					 <input type="text" class="submit">
+				</div> -->
 			</form>
 			<div class="vidio">
 				<img src="1.jpg">
 			</div>
 		</article>
+<?php
+	}
+?>
 	</div>
 	<footer>脚注脚注脚注脚注</footer>
-	<script type="text/javascript">
+<!--	<script type="text/javascript">
 	var upfile = document.getElementById("upfile");
 	upfile.onchange = function() {
 		updateFilename(this.value);
@@ -56,6 +96,6 @@
 	   var name = extractFilename(path);
 	   document.getElementById('filename').textContent = "您上传的是 "+name;
 	 }
-	</script>
+	</script>-->
 </body>
 </html>

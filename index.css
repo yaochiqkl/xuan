@@ -49,8 +49,8 @@ img{
 }
 
 .container{
-	margin: auto;
-	width: 100%;
+	margin:0 auto;
+	width: 800px;
 }
 .a1{
 	text-align: left;
@@ -59,6 +59,7 @@ img{
 	margin:40px auto ;
 	float: center;
 	width: 480px;
+	padding-left: 50px;
 }
 .a1 img{
 	float: left;
@@ -86,12 +87,24 @@ img{
 	color: #e06826
 }
 .a2{
-	clear: both;
+	width: 500px;
 	white-space:nowrap;
 	width: 75%;
 	margin:10px auto ;
+	text-align: center;
 }
-.a2 .input-group{
+.a2 .upload_group{
+	border: 1px white solid;
+	width: 400px;
+	margin: 0 auto;
+}
+.a2 .upload_group .file{
+	float: left;
+}
+.a2 .upload_group .submit{
+	float: right;
+}
+/*.a2 .input-group{
     height: 35px;
     max-width: 700px;
     margin:10px auto ;
@@ -139,7 +152,7 @@ img{
 	cursor: pointer;
     background-color:rgba(255,255,255,0.1);
 }
-/*.a2 .input-group .submit{
+.a2 .input-group .submit{
 	width: 33px;
 	height: 33px;
 	border: none;
