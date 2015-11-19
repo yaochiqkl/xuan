@@ -3,13 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="register.css">
+	<link rel="stylesheet" type="text/css" href="./css/register.css">
 </head>
 <body>
 	<header>
 		<div>
-		<a href="index.php">返回首页</a>
-		<a href="register.php">登陆</a>
+		<a href="index.php">首页</a>
+		<a href="register.php">注册</a>
+		<a href="login.php">登陆</a>
 		</div>
 	</header>
 	<div class="container">
@@ -20,10 +21,10 @@
 		$email = $_POST['email'];
 
 		$register = false;
-		$dbc = mysqli_connect('localhost','root','','test')
+		$dbc = mysqli_connect('localhost','root','','xuan')
 			or die('Error connecting to MySQL server!');
 		$query = "INSERT INTO user (username,password,user_email)".
-			"VALUES('$username','$password','$email')";
+			"VALUES('$username',SHA('$password'),'$email')";
 		/*$query = "SELECT * FROM user";*/
 		$result = mysqli_query($dbc,$query)
 			or die('Error quering database!');
@@ -45,7 +46,7 @@
 			<div>
 				<label for="password">密码</label>
 				<input type="password" name="password" id="password" required>
-			<div>
+			</div>
 			<div>
 				<label for="password">请再次输入密码</label>
 				<input type="password" name="password2" id="password2" required>
@@ -53,16 +54,18 @@
 			<div>
 				<label for="email">邮箱</label>
 				<input type="email" name="email" id="email" required>
-			<div>
+			</div>
 			<div>
 				<input type="submit" name="submit" value="提交" id="submit">
 			</div>
 		</form>
-	</div>
 <?php
 	}
 ?>
-	<footer>脚注脚注脚注脚注</footer>
-
+	</div>
+	<footer>
+		<hr>
+		CopyRight 2015 lsz
+	</footer>
 </body>
 </html>

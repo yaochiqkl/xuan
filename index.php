@@ -3,14 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
 	<header>
+<?php
+	if (isset ($_COOKIE['user_ID'])){
+		echo '<div>'.$_COOKIE['username'];
+		echo '<a href="logout.php">注销</a></div>';
+	} else {
+?>
 		<div>
+		<a href="index.php">首页</a>
 		<a href="register.php">注册</a>
 		<a href="login.php">登陆</a>
 		</div>
+<?php
+	}
+?>
 	</header>
 	<div class="container">
 		<article class="a1">
@@ -29,6 +39,7 @@
 
 	if(isset($_POST['submit'])){
 		$file = $_FILES['file']['name'];
+		$file = iconv("UTF-8","GB2312",$file); //中文GBK编码乱码问题
 		if($_FILES['file']['error'] > 0){
 			echo "Error".$_FILES['file']['error']."<br>";
 		} else {
@@ -36,15 +47,12 @@
 		}
 		$target = UPLOAD_PATH.$file;
 		if(move_uploaded_file($_FILES['file']['tmp_name'], $target)){
-			$dbc = mysqli_connect('localhost','root','','test')
+			$dbc = mysqli_connect('localhost','root','','xuan')
 				or die('Error connecting to MySQL server!');
 			$query = "INSERT INTO vidio (vidio_name,vidio_upload_time)".
 				"VALUES('$file',NOW())";
-			/*$query = "SELECT * FROM user";*/
 			$result = mysqli_query($dbc,$query)
 				or die('Error quering database!');
-			/*$row = mysqli_fetch_array($result);
-			echo $row['username'];*/
 			mysqli_close($dbc);
 			$upload = false;
 			echo "上传成功";
@@ -69,14 +77,17 @@
 				</div> -->
 			</form>
 			<div class="vidio">
-				<img src="1.jpg">
+				<img src="./images/1.jpg">
 			</div>
 		</article>
 <?php
 	}
 ?>
 	</div>
-	<footer>脚注脚注脚注脚注</footer>
+	<footer>
+		<hr>
+		CopyRight 2015 lsz
+	</footer>
 <!--	<script type="text/javascript">
 	var upfile = document.getElementById("upfile");
 	upfile.onchange = function() {

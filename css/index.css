@@ -96,6 +96,8 @@ img{
 .a2 .upload_group{
 	border: 1px white solid;
 	width: 400px;
+	height: 30px;
+	padding: 5px 10px 0 10px;
 	margin: 0 auto;
 }
 .a2 .upload_group .file{
@@ -175,8 +177,6 @@ img{
 .a2 .vidio img{
 }
 footer{
-	width: 500px;
-	border: 1px solid white;
-	height:50px;
-	margin: 0px auto;
+	text-align: center;
+	margin-top: 30px;
 }
