@@ -1,12 +1,12 @@
 @import url(common.css);
 
 .container{
-	margin: 0 auto;
-	margin-top: 100px;
+	margin: 100px auto;
 	width: 330px;
 	height: 250px;
 	border: 1px #FFF solid;
 	padding:20px;
+	padding-bottom: 80px;
 }
 .container>h1{
 	margin: 0 130px;

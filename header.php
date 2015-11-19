@@ -1,6 +1,6 @@
 <?php
 	if (isset ($_COOKIE['user_ID'])){
-		echo '<div>'.$_COOKIE['username'];
+		echo '<div>Welcome&nbsp;,&nbsp;'.$_COOKIE['username'];
 		echo '<a href="logout.php">注销</a></div>';
 	} else {
 ?>

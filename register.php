@@ -14,22 +14,24 @@
 	<div class="container">
 <?php
 	if(isset($_POST['submit'])){
+		$user_pass_phrase = $_POST['verify'];
+		if( $_SESSION['pass_phrase'] == $user_pass_phrase){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
-
 		$register = false;
 		$dbc = mysqli_connect('localhost','root','','xuan')
 			or die('Error connecting to MySQL server!');
 		$query = "INSERT INTO user (username,password,user_email)".
-			"VALUES('$username',SHA('$password'),'$email')";
-		/*$query = "SELECT * FROM user";*/
+			"VALUES('$username','$password','$email')";
 		$result = mysqli_query($dbc,$query)
 			or die('Error quering database!');
-		/*$row = mysqli_fetch_array($result);
-		echo $row['username'];*/
 		mysqli_close($dbc);
-		echo "注册成功，请登录！";
+		echo '注册成功，请<a href="login.php">登录</a>！';
+		} else {
+			echo '验证码错误';
+			$register = true;
+		}
 	} else {
 		$register = true;
 	}
@@ -54,6 +56,9 @@
 				<input type="email" name="email" id="email" required>
 			</div>
 			<div>
+				<label for="verify">验证码</label>
+				<input type="text" name="verify" id="verify" required>
+				<img src="captcha.php" alt="verification pass-phrase">
 				<input type="submit" name="submit" value="提交" id="submit">
 			</div>
 		</form>

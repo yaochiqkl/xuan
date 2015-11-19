@@ -55,6 +55,7 @@
 				<input type="submit" name="submit" value="提交" id="submit">
 			</div>
 		</form>
+		<a href="./backstage/admin.php">管理员登陆</a>
 <?php
 	} else {
 		echo '欢迎您，'.$_COOKIE['username'];
