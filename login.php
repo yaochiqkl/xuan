@@ -7,11 +7,9 @@
 </head>
 <body>
 	<header>
-		<div>
-		<a href="index.php">首页</a>
-		<a href="register.php">注册</a>
-		<a href="login.php">登陆</a>
-		</div>
+<?php
+	require_once('header.php');
+?>
 	</header>
 	<div class="container">
 <?php
@@ -64,9 +62,8 @@
 ?>
 
 	</div>
-	<footer>
-		<hr>
-		CopyRight 2015 lsz
-	</footer>
+<?php
+ require_once('footer.php');
+?>
 </body>
 </html>
