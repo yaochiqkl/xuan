@@ -85,26 +85,21 @@
 	button.disabled = true;
 	var psw = document.getElementById('password');
 	var psw2 = document.getElementById('password2');
-	psw.onblur = function () {
-			var psw11 = document.getElementById('password').value;
-			var psw22 = document.getElementById('password2').value;
-			if (psw11 == psw22) {
-				button.disabled = false;
-			} else{
-				button.disabled = true;
+	psw.onblur = checkPassword;
+	psw2.onblur = checkPassword;
+	function checkPassword(event) {
+		var password1 = document.getElementById('password');
+		var password2 = document.getElementById('password2');
+		if (password1.value != password2.value) {
+			button.disabled = true;
+			if (event.target.id === "password2") { 
+				alert("两次输入密码不一致"); 
+				password2.value = "";
 			}
-	};
-	psw2.onblur = function () {
-			var psw11 = document.getElementById('password').value;
-			var psw22 = document.getElementById('password2').value;
-			if (psw11 == psw22) {
-				button.disabled = false;
-			} else{
-				button.disabled = true;
-			}
-	};
-
-
+		  	return;
+		} 
+		button.disabled = false;
+	}
 </script>
 </body>
 </html>
