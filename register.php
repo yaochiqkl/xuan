@@ -13,21 +13,32 @@
 	</header>
 	<div class="container">
 <?php
+	#表单提交检查
 	if(isset($_POST['submit'])){
 		$user_pass_phrase = $_POST['verify'];
+		#验证码正确性检查
 		if( $_SESSION['pass_phrase'] == $user_pass_phrase){
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$email = $_POST['email'];
-		$register = false;
-		$dbc = mysqli_connect('localhost','root','','xuan')
-			or die('Error connecting to MySQL server!');
-		$query = "INSERT INTO user (username,password,user_email)".
-			"VALUES('$username','$password','$email')";
-		$result = mysqli_query($dbc,$query)
-			or die('Error quering database!');
-		mysqli_close($dbc);
-		echo '注册成功，请<a href="login.php">登录</a>！';
+			$dbc = mysqli_connect('localhost','root','','xuan')
+				or die('Error connecting to MySQL server!');
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$email = $_POST['email'];
+			$query = "SELECT * FROM user WHERE username = '$username'";
+			$data = mysqli_query($dbc,$query);
+			#用户名唯一性检查
+			if(mysqli_num_rows($data) == 0){
+				$register = false;
+				$query = "INSERT INTO user (username,password,user_email)".
+					"VALUES('$username','$password','$email')";
+				$result = mysqli_query($dbc,$query)
+					or die('Error quering database!');
+				mysqli_close($dbc);
+				echo '注册成功，请<a href="login.php">登录</a>！';
+			} else {
+				echo '用户名已注册！';
+				$username = "";
+				$register = true;
+			}
 		} else {
 			echo '验证码错误';
 			$register = true;
@@ -45,11 +56,11 @@
 			</div>
 			<div>
 				<label for="password">密码</label>
-				<input type="password" name="password" id="password" required>
+				<input class="psw" type="password" name="password" id="password" required>
 			</div>
 			<div>
 				<label for="password">请再次输入密码</label>
-				<input type="password" name="password2" id="password2" required>
+				<input class="psw" type="password" name="password2" id="password2" required>
 			</div>
 			<div>
 				<label for="email">邮箱</label>
@@ -69,5 +80,31 @@
 <?php
  require_once('footer.php');
 ?>
+<script type="text/javascript">
+	var button = document.getElementById('submit');
+	button.disabled = true;
+	var psw = document.getElementById('password');
+	var psw2 = document.getElementById('password2');
+	psw.onblur = function () {
+			var psw11 = document.getElementById('password').value;
+			var psw22 = document.getElementById('password2').value;
+			if (psw11 == psw22) {
+				button.disabled = false;
+			} else{
+				button.disabled = true;
+			}
+	};
+	psw2.onblur = function () {
+			var psw11 = document.getElementById('password').value;
+			var psw22 = document.getElementById('password2').value;
+			if (psw11 == psw22) {
+				button.disabled = false;
+			} else{
+				button.disabled = true;
+			}
+	};
+
+
+</script>
 </body>
 </html>

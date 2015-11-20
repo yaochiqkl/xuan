@@ -9,6 +9,7 @@
 	<header>
 <?php
 	require_once('header.php');
+	$home_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/index.php';
 ?>
 	</header>
 	<div class="container">
@@ -27,14 +28,17 @@
 				setcookie('user_ID',$row['user_ID'],time()+3600*24);
 				setcookie('username',$row['username'],time()+3600*24);
 				$home_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/index.php';
-				header('Location:'.$home_url);
+				header('Refresh: 3; url = '.$home_url.'');
+				echo '登陆成功，3秒后将跳转首页。';
+				exit();
 			} else {
 				$error_msg = '请输入正确的用户名和密码';
 			}
 		}
 	} else {
-		$home_url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/index.php';
-		header('Location:'.$home_url);
+		#header('Location:'.$home_url);
+		header('Refresh: 5; url = $home_url');
+		echo '登陆成功，5秒后将跳转首页。';
 	}
 	if (empty($_COOKIE['user_ID'])){
 		if (!empty($error_msg)) {
