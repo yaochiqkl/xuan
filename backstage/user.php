@@ -31,7 +31,7 @@
 		echo '<td><a href="removeuser.php?id='
 			.$row['user_ID']
 			.'" onClick="if(confirm('
-			.'\'确定要删除吗？\''
+			.'\'确定要删除吗？？\''
 			.'))return true;return false;">删除</a></td></tr>';
 	}
 	echo '</table>';
