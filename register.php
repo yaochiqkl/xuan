@@ -35,12 +35,12 @@
 				mysqli_close($dbc);
 				echo '注册成功，请<a href="login.php">登录</a>！';
 			} else {
-				echo '用户名已注册！';
+				echo '<script>alert("用户名已存在！")</script>';
 				$username = "";
 				$register = true;
 			}
 		} else {
-			echo '验证码错误';
+			echo '<script>alert("验证码错误！")</script>';
 			$register = true;
 		}
 	} else {
@@ -72,7 +72,7 @@
 			<div>
 				<label for="verify">验证码</label>
 				<input type="text" name="verify" id="verify" required>
-				<img src="captcha.php" alt="verification pass-phrase">
+				<img src="captcha.php" alt="verification pass-phrase" onclick="this.src='captcha.php'"><!--实现点击更新-->
 				<input type="submit" name="submit" value="提交" id="submit">
 			</div>
 		</form>
@@ -85,11 +85,12 @@
 ?>
 <script type="text/javascript">
 	var button = document.getElementById('submit');
-	button.disabled = true;
+	//button.disabled = true;
 	var psw = document.getElementById('password');
 	var psw2 = document.getElementById('password2');
 	psw.onblur = checkPassword;
 	psw2.onblur = checkPassword;
+	checkPassword();
 	function checkPassword(event) {
 		var password1 = document.getElementById('password');
 		var password2 = document.getElementById('password2');
@@ -101,7 +102,11 @@
 			}
 		  	return;
 		} 
-		button.disabled = false;
+		if (password1 !=="" || password1.value == password2.value) {
+			button.disabled = false;
+			return;
+		}
+		//button.disabled = false;
 	}
 </script>
 </body>
