@@ -47,24 +47,27 @@
 		$register = true;
 	}
 	if($register){
+		@$username = $_POST['username']; #粘性表单
+		@$password = $_POST['password'];
+		@$email = $_POST['email'];
 ?>
 		<h1>注册</h1>
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
 			<div>
 				<label for="username">用户名</label>
-				<input type="text" name="username" id="username" required>
+				<input type="text" name="username" id="username" value="<?php echo @$username; ?>" required>
 			</div>
 			<div>
 				<label for="password">密码</label>
-				<input class="psw" type="password" name="password" id="password" required>
+				<input class="psw" type="password" name="password" id="password" value="<?php echo @$password; ?>" required>
 			</div>
 			<div>
 				<label for="password">请再次输入密码</label>
-				<input class="psw" type="password" name="password2" id="password2" required>
+				<input class="psw" type="password" name="password2" id="password2" value="<?php echo @$password; ?>" required>
 			</div>
 			<div>
 				<label for="email">邮箱</label>
-				<input type="email" name="email" id="email" required>
+				<input type="email" name="email" id="email" value="<?php echo @$email; ?>" required>
 			</div>
 			<div>
 				<label for="verify">验证码</label>
