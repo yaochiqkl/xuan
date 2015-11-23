@@ -28,11 +28,16 @@
 	while ($row = mysqli_fetch_array($data)){
 		echo '<tr class=""><td><strong>'.$row['username'].'</strong><td>';
 		echo '<td>'.$row['user_email'].'</td>';
-		echo '<td><a href="removeuser.php?id='.$row['user_ID'].'">删除</a></td></tr>';
+		echo '<td><a href="removeuser.php?id='
+			.$row['user_ID']
+			.'" onClick="if(confirm('
+			.'\'确定要删除吗？\''
+			.'))return true;return false;">删除</a></td></tr>';
 	}
 	echo '</table>';
 ?>
 	SECRET
 	<a href="admin.php">返回</a>
+
 </body>
 </html>

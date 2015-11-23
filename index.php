@@ -44,7 +44,8 @@
 				or die('Error quering database!');
 			mysqli_close($dbc);
 			$upload = false;
-			echo "上传成功";
+			echo '上传成功';
+			echo "返回<a href='index.php'>主页</a>";
 		}
 	} else {
 		$upload = true;
